@@ -1,58 +1,83 @@
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
-    font-family: Arial, sans-serif;
-  }
-  
-  #inputContainer {
-    margin-bottom: 20px;
-  }
-  
-  #inputContainer label {
-    margin-right: 10px;
-  }
-  
-  #inputContainer input {
-    margin-right: 20px;
-    padding: 5px;
-    font-size: 16px;
-  }
-  
-  #buttonContainer {
-    margin-bottom: 20px;
-  }
-  
-  #generateButton {
-    font-size: 20px;
-    background-color: #00008B; /* ciemnoniebieski */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  #generateButton:hover {
-    background-color: #000070; /* ciemniejszy odcień przy najechaniu */
-  }
-  
-  #randomNumberContainer {
-    font-family: Arial, sans-serif;
-    font-size: 27px;
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  #numberContainer {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-  
-  #randomNumber {
-    color: red;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+#inputContainer {
+  margin-bottom: 20px;
+}
+
+#inputContainer label {
+  margin-right: 10px;
+}
+
+#inputContainer input {
+  margin-right: 20px;
+  padding: 5px;
+  font-size: 16px;
+}
+
+#buttonContainer {
+  margin-bottom: 20px;
+}
+
+#generateButton {
+  font-size: 20px;
+  background-color: #00008B; /* ciemnoniebieski */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#generateButton:hover {
+  background-color: #000070; /* ciemniejszy odcień przy najechaniu */
+}
+
+#randomNumberContainer {
+  font-family: Arial, sans-serif;
+  font-size: 27px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+#numberContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#randomNumber {
+  color: red;
+}
+
+#webcamContainer {
+  margin-top: 20px;
+}
+
+#toggleWebcamButton {
+  font-size: 20px;
+  background-color: #00008B; /* ciemnoniebieski */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+#toggleWebcamButton:hover {
+  background-color: #000070; /* ciemniejszy odcień przy najechaniu */
+}
+
+#webcam {
+  margin-top: 20px;
+  width: 600px;
+  height: 400px;
+  background: black;
+}
+
+

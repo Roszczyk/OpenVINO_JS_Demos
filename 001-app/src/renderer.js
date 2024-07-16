@@ -1,17 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const generateButton = document.getElementById('generateButton');
-    const randomNumberElement = document.getElementById('randomNumber');
-  
-generateButton.addEventListener('click', () => {
-      const min = parseInt(document.getElementById('min').value, 10);
-      const max = parseInt(document.getElementById('max').value, 10);
-  
-      if (isNaN(min) || isNaN(max) || min >= max) {
-        alert('Please enter valid min and max values with min < max');
-        return;
-      }
-  
-const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-      randomNumberElement.textContent = randomNumber;
-    });
+  const toggleWebcamButton = document.getElementById('toggleWebcamButton');
+  const webcamElement = document.getElementById('webcam');
+  let webcamStream = null;
+
+  toggleWebcamButton.addEventListener('click', () => {
+    if (webcamStream) {
+      stopWebcam();
+    } else {
+      startWebcam();
+    }
   });
+
+  function startWebcam() {
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => {
+        webcamElement.srcObject = stream;
+        webcamStream = stream;
+        toggleWebcamButton.textContent = 'Stop Webcam';
+      })
+      .catch(error => {
+        console.error('Error accessing webcam:', error);
+      });
+  }
+
+  function stopWebcam() {
+    webcamStream.getTracks().forEach(track => track.stop());
+    webcamElement.srcObject = null;
+    webcamStream = null;
+    toggleWebcamButton.textContent = 'Start Webcam';
+  }
+});
