@@ -8,11 +8,23 @@
 </head>
 <body>
   <h1>Webcam APP</h1>
-  <div id="webcamContainer">
-    <button id="toggleWebcamButton">Toggle Webcam</button>
-  </div>
-  <div id="webcamViewer">
-    <video id="webcam" autoplay playsinline></video>
+  <div id="container">
+    <div id="leftSide">
+      <div id="webcamContainer">
+        <button id="toggleWebcamButton">Start Webcam 1</button>
+      </div>
+      <div id="webcamViewer">
+        <video id="webcam" autoplay playsinline></video>
+      </div>
+    </div>
+    <div id="rightSide">
+      <div id="webcamContainer2">
+        <button id="toggleWebcamButton2">Start Webcam 2</button>
+      </div>
+      <div id="webcamViewer2">
+        <video id="webcam2" autoplay playsinline></video>
+      </div>
+    </div>
   </div>
 
   <script src="renderer.js"></script>
