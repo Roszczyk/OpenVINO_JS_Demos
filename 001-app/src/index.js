@@ -34,7 +34,7 @@ app.on('activate', () => {
 ipcMain.on('save-photo', (event, buffer) => {
   console.log('Received photo buffer to save.');
 
-  const directory = path.join(app.getPath('userData'), 'photos');
+  const directory = path.join(__dirname, 'photos');
   if (!fs.existsSync(directory)) {
     fs.mkdirSync(directory);
   }

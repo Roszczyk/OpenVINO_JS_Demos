@@ -78,9 +78,9 @@ body {
   transform: scaleX(-1);
 }
 
-#takePhotoButton, #takePhotoButton2 {
+#savePhotoButton1, #savePhotoButton2, #takePhotoButton, #takePhotoButton2 {
   font-size: 20px;
-  background-color: #00008B; /* ciemnoniebieski */
+  background-color: #00008B; 
   color: white;
   padding: 10px 20px;
   border: none;
@@ -88,7 +88,7 @@ body {
   margin-bottom: 10px;
 }
 
-#takePhotoButton:hover, #takePhotoButton2:hover {
+#savePhotoButton1:hover, #savePhotoButton2:hover, #takePhotoButton:hover, #takePhotoButton2:hover {
   background-color: #ADD8E6;
   color: black;
 }

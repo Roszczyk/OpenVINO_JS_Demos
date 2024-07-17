@@ -5,6 +5,7 @@
 // });
 
 // const { ipcRenderer } = require('electron');
+// const { Buffer } = require('node:buffer');
 
 document.addEventListener('DOMContentLoaded', () => {
   const toggleWebcamButton = document.getElementById('toggleWebcamButton');
@@ -20,6 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const photoElement1 = document.getElementById('photo1');
   const photoElement2 = document.getElementById('photo2');
+
+  const savePhotoButton1 = document.getElementById('savePhotoButton1');
+  const savePhotoButton2 = document.getElementById('savePhotoButton2');
+
+  let capturedPhotoBlob1 = null;
+  let capturedPhotoBlob2 = null;
 
   toggleWebcamButton.addEventListener('click', () => {
     if (webcamStream) {
@@ -46,11 +53,27 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   takePhotoButton.addEventListener('click', () => {
-    takePhoto(webcamElement, photoElement1);
+    takePhoto(webcamElement, photoElement1, 1);
   });
 
   takePhotoButton2.addEventListener('click', () => {
-    takePhoto(webcamElement2, photoElement2);
+    takePhoto(webcamElement2, photoElement2, 2);
+  });
+
+  savePhotoButton1.addEventListener('click', () => {
+    if (capturedPhotoBlob1) {
+      savePhoto(capturedPhotoBlob1);
+    } else {
+      alert('No photo captured yet!');
+    }
+  });
+
+  savePhotoButton2.addEventListener('click', () => {
+    if (capturedPhotoBlob2) {
+      savePhoto(capturedPhotoBlob2);
+    } else {
+      alert('No photo captured yet!');
+    }
   });
 
   function startWebcam(videoElement, onStreamReady) {
@@ -70,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
     buttonElement.textContent = 'Start Webcam ' + number;
   }
 
-  function takePhoto(videoElement, photoElement) {
+  function takePhoto(videoElement, photoElement, webcamNumber) {
     const canvas = document.createElement('canvas');
     canvas.width = videoElement.videoWidth;
     canvas.height = videoElement.videoHeight;
@@ -80,8 +103,21 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.toBlob(blob => {
       const url = URL.createObjectURL(blob);
       photoElement.src = url;
+      if (webcamNumber === 1) {
+        capturedPhotoBlob1 = blob;
+      } else if (webcamNumber === 2) {
+        capturedPhotoBlob2 = blob;
+      }
     }, 'image/png');
   }
-});
 
+  function savePhoto(blob) {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      const buffer = new window.electron.Buffer(reader.result);
+      window.electron.ipcRenderer.send('save-photo', buffer);
+    };
+    reader.readAsArrayBuffer(blob);
+  }
+});
 
