@@ -17,6 +17,7 @@
       "src/index.html",
       "src/renderer.js",
       "src/styles.css",
+      "src/preload.js",
       "package.json"
     ]
   },

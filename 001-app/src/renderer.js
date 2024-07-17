@@ -1,12 +1,3 @@
-// const { contextBridge, ipcRenderer } = require('electron');
-
-// contextBridge.exposeInMainWorld('electron', {
-//   ipcRenderer: ipcRenderer
-// });
-
-// const { ipcRenderer } = require('electron');
-// const { Buffer } = require('node:buffer');
-
 document.addEventListener('DOMContentLoaded', () => {
   const toggleWebcamButton = document.getElementById('toggleWebcamButton');
   const webcamElement = document.getElementById('webcam');

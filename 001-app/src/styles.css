@@ -95,7 +95,11 @@ body {
 
 #photoViewer1, #photoViewer2 {
   text-align: center;
+  width: 480px;
+  height: 360px;
   margin-top: 10px;
+  background: black;
+  transform: scaleX(-1);
 }
 
 video {
