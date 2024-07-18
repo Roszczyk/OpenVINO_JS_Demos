@@ -30,23 +30,3 @@ app.on('activate', () => {
     createWindow();
   }
 });
-
-ipcMain.on('save-photo', (event, buffer) => {
-  dialog.showSaveDialog({
-    title: 'Save Photo',
-    defaultPath: 'photo.png',
-    filters: [
-      { name: 'Images', extensions: ['png'] }
-    ]
-  }).then(result => {
-    if (!result.canceled) {
-      fs.writeFile(result.filePath, buffer, (err) => {
-        if (err) {
-          console.error('Error saving photo:', err);
-        }
-      });
-    }
-  }).catch(err => {
-    console.error('Error during save dialog:', err);
-  });
-});
