@@ -1,23 +1,21 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
-const fs = require('fs');
 
 function createWindow() {
-  const mainWindow = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
-      contextIsolation: true,
-      enableRemoteModule: false,
-      nodeIntegration: false,
-    }
+      preload: path.join(__dirname, 'renderer.js'),
+      contextIsolation: false,
+      nodeIntegration: true,
+    },
   });
 
-  mainWindow.loadFile('src/index.html');
+  win.loadFile('src/index.html');
 }
 
-app.on('ready', createWindow);
+app.whenReady().then(createWindow);
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -29,4 +27,14 @@ app.on('activate', () => {
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
   }
+});
+
+ipcMain.handle('open-file-dialog', async () => {
+  const result = await dialog.showOpenDialog({
+    properties: ['openFile'],
+    filters: [
+      { name: 'Images', extensions: ['jpg', 'png', 'gif'] },
+    ]
+  });
+  return result;
 });

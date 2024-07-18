@@ -1,10 +1,14 @@
 const { contextBridge, ipcRenderer } = require('electron');
-const { Buffer } = require('buffer');
+// const { addon: ov } = require('openvino-node');
+const { performance } = require('perf_hooks');
+// const { cv } = require('opencv-wasm');
+const { getImageData } = require('./helpers.js');
+
 
 contextBridge.exposeInMainWorld('electron', {
-  ipcRenderer: {
-    send: (channel, data) => ipcRenderer.send(channel, data),
-    on: (channel, func) => ipcRenderer.on(channel, (event, ...args) => func(event, ...args))
-  },
-  Buffer: Buffer
+  selectImage: () => ipcRenderer.invoke('select-image'),
+  // ov,
+  performance,
+  // cv,
+  getImageData
 });
