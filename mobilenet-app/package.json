@@ -1,17 +1,17 @@
 {
-  "name": "mobilenet-app",
+  "name": "electron-openvino-app",
   "version": "1.0.0",
+  "description": "An Electron app with OpenVINO integration",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "electron-builder"
+    "build": "electron-builder"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
+  "author": "Mikolaj Roszczyk (Intel)",
+  "license": "MIT",
+  "devDependencies": {
     "electron": "^31.2.1",
+    "electron-builder": "^24.13.3",
     "opencv-wasm": "^4.3.0-10",
     "openvino-node": "^2024.2.0",
     "@tensorflow/tfjs-node": "^4.19.0",
@@ -20,7 +20,31 @@
     "canvas": "^2.11.2",
     "perf_hooks": "^0.0.1"
   },
-  "devDependencies": {
-    "electron-reload": "^2.0.0-alpha.1"
+  "build": {
+  "appId": "com.yourname.electronopenvinoapp",
+  "productName": "ElectronOpenVINOApp",
+  "files": [
+    "main.js",
+    "preload.js",
+    "renderer.js",
+    "helper.js",
+    "index.html",
+    "style.css",
+    "openvino/**/*",
+    "openvino/hello_classification.js",
+    "openvino/mobilenet-ssd.xml",
+    "openvino/mobilenet-ssd.bin",
+    "node_modules/**/*"
+  ],
+  "asarUnpack": [
+    "openvino/**/*"
+  ],
+  "directories": {
+    "buildResources": "build"
+  },
+  "win": {
+    "target": "nsis",
+    "icon": "build/icon.ico"
   }
+}
 }
