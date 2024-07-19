@@ -18,5 +18,12 @@ viewButton.addEventListener('click', () => {
   if (uploadedFilePath) {
     imageElement.src = `file://${uploadedFilePath}`;
     imageElement.style.display = 'block';
+    printImageData(uploadedFilePath);
   }
 });
+
+function printImageData(image){
+  const imgData = window.electron.getImageData(image);
+  document.getElementById('result').innerText = imgData;
+  document.getElementById('result').style.display = 'block';
+}

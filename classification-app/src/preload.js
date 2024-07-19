@@ -10,5 +10,5 @@ contextBridge.exposeInMainWorld('electron', {
   // ov,
   performance,
   // cv,
-  getImageData
+  getImageData : getImageData
 });
