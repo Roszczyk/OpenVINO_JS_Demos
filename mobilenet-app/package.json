@@ -1,0 +1,26 @@
+{
+  "name": "mobilenet-app",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "electron": "^31.2.1",
+    "opencv-wasm": "^4.3.0-10",
+    "openvino-node": "^2024.2.0",
+    "@tensorflow/tfjs-node": "^4.19.0",
+    "eslint": "^8.39.0",
+    "https-proxy-agent": "^7.0.2",
+    "canvas": "^2.11.2",
+    "perf_hooks": "^0.0.1"
+  },
+  "devDependencies": {
+    "electron-reload": "^2.0.0-alpha.1"
+  }
+}

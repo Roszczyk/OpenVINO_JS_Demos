@@ -1,0 +1,63 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  
+  #imageContainer {
+    margin: 20px 0;
+  }
+  
+  #imagePreview {
+    max-width: 100%;
+    max-height: 300px;
+    display: block;
+  }
+  
+  #outputContainer {
+    margin-top: 20px;
+  }
+  
+  pre {
+    background: #f4f4f4;
+    padding: 10px;
+  }
+  
+  #uploadButton, #infButton {
+    font-size: 20px;
+    width: 240px;
+    background-color: #00008B;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+
+  #uploadButton:hover, #infButton:hover {
+    background-color: #ADD8E6;
+    color: black;
+  }
+
+  #leftSide{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 50%;
+  }
+
+  #rightSide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+  }
+
+  
+#container {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  #deviceSelect{
+    width: 240px
+  }

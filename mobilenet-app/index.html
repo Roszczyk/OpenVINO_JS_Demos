@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OpenVINO MobileNet Classification</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Image Classification with MobileNet and OpenVINO</h1>
+  <div id="container">
+    <div id="leftSide">
+        <button id="uploadButton">Upload Image</button>
+        <div id="imageContainer">
+            <img id="imagePreview" alt="Image Preview" />
+        </div>
+        <label for="deviceSelect">Select Device:</label>
+        <select id="deviceSelect">
+            <option value="CPU">CPU</option>
+            <option value="GPU">GPU</option>
+        </select>
+        <button id="infButton">Inference</button>
+    </div>
+    <div id="rightSide">
+        <div id="outputContainer">
+            <p id="preoutput" style="display:none">Counting...</p>
+            <pre id="output" style="display: none;"></pre>
+        </div>
+    </div>
+    </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
