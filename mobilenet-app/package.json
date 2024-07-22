@@ -1,7 +1,7 @@
 {
-  "name": "electron-openvino-app",
+  "name": "mobilenet-app",
   "version": "1.0.0",
-  "description": "An Electron app with OpenVINO integration",
+  "description": "Run MobileNet Classification with OpenVINO",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -21,7 +21,7 @@
     "perf_hooks": "^0.0.1"
   },
   "build": {
-  "appId": "com.yourname.electronopenvinoapp",
+  "appId": "com.yourname.mobilenetopenvinoapp",
   "productName": "ElectronOpenVINOApp",
   "files": [
     "main.js",
@@ -30,7 +30,6 @@
     "helper.js",
     "index.html",
     "style.css",
-    "openvino/**/*",
     "openvino/hello_classification.js",
     "openvino/mobilenet-ssd.xml",
     "openvino/mobilenet-ssd.bin",
