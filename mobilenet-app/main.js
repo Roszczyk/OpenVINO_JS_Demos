@@ -2,7 +2,9 @@ const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
 const fs = require('fs');
 const { execFile } = require('child_process');
-const { ov } = require(' openvino-node ');
+// const { addon: ov } = require('openvino-node');
+const { runModel } = require('./jobs');
+const { getImageData } = require('./helpers.js');
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -41,3 +43,15 @@ ipcMain.handle('run-inference', async (event, imagePath, device) => {
         });
     });
 });
+
+ipcMain.handle('run-model', async(imagePath, deviceName) => {
+    const modelPath = path.join(__dirname, 'openvino', 'mobilenet-ssd.xml'); 
+    const result = runModel(modelPath, imagePath, deviceName);
+    return result;
+});
+
+ipcMain.handle('get-img-data', async(path) => {
+    const result = getImageData(path);
+    return result;
+});
+
