@@ -1,7 +1,7 @@
-// const fs = require('node:fs').promises;
-// const path = require('node:path');
-
-// const { cv } = require('opencv-wasm');
+const fs = require('node:fs').promises;
+const path = require('node:path');
+const { addon: ov } = require('openvino-node');
+const { cv } = require('opencv-wasm');
 
 const { getImageData } = require('./helpers');
 

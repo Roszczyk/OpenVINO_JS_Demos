@@ -1,5 +1,4 @@
 const { contextBridge, ipcRenderer } = require('electron');
-const { ov } = require('openvino-node');
 
 contextBridge.exposeInMainWorld('electronAPI', {
     openFileDialog: () => ipcRenderer.invoke('open-file-dialog'),
