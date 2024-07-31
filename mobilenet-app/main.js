@@ -4,7 +4,7 @@ const fs = require('fs');
 const { execFile } = require('child_process');
 // const { addon: ov } = require('openvino-node');
 const { runModel } = require('./jobs');
-const { getImageData } = require('./helpers.js');
+// const { getImageData } = require('./helpers');
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -50,8 +50,8 @@ ipcMain.handle('run-model', async(imagePath, deviceName) => {
     return result;
 });
 
-ipcMain.handle('get-img-data', async(path) => {
-    const result = getImageData(path);
-    return result;
-});
+// ipcMain.handle('get-img-data', async(path) => {
+//     const result = getImageData(path);
+//     return result;
+// });
 

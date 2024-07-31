@@ -10,7 +10,7 @@ const {
   loadImage,
   createCanvas,
   createImageData,
-} = require('canvas');
+} = require('@napi-rs/canvas');
 
 module.exports = {
   exp,

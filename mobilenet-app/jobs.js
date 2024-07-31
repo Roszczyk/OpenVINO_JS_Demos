@@ -3,7 +3,9 @@
 
 // const { cv } = require('opencv-wasm');
 
-// const { getImageData } = require('./helpers');
+const { getImageData } = require('./helpers');
+
+module.exports = { runModel }
 
 async function runModel(modelPath, imagePath, deviceName) {
     //----------------- Step 1. Initialize OpenVINO Runtime Core -----------------
@@ -20,7 +22,7 @@ async function runModel(modelPath, imagePath, deviceName) {
   
     //----------------- Step 3. Set up input -------------------------------------
     // Read input image
-    const imgData = await window.electronAPI.getImageData(imagePath);
+    const imgData = await getImageData(imagePath);
   
     // Use opencv-wasm to preprocess image.
     const originalImage = cv.matFromImageData(imgData);
