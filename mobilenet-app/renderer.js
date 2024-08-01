@@ -14,8 +14,8 @@ document.getElementById('infButton').addEventListener('click', async () => {
     document.getElementById('preoutput').style.display = 'block';
     const device = document.getElementById('deviceSelect').value;
     if (imagePath) {
-        const { output } = await window.electronAPI.runModel(imagePath, device);
-        const text_result = `Class: ${output.classId}\nProbability: ${output.topPrediction} \nInference time: ${output.inferenceTime}`
+        const output = await window.electronAPI.runModel(imagePath, device);
+        const text_result = `Class: ${output[1]}\nProbability: ${output[0]} \nInference time: ${output[2]}`
         document.getElementById('output').innerText = text_result;
         document.getElementById('preoutput').style.display = 'none';
         document.getElementById('output').style.display = 'block';

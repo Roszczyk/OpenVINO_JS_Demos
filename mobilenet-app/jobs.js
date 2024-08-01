@@ -72,10 +72,14 @@ async function runModel(modelPath, imagePath, deviceName) {
   
     console.log(`INFERENCE TIME: ${inferenceTime.toFixed(2)} ms`)
     const topPrediction = predictions[0];
+
+    const results = [topPrediction.prediction.toFixed(7), topPrediction.classId.toString(), inferenceTime.toFixed(2)];
   
-    return {
-      topPrediction: topPrediction.prediction.toFixed(7),
-      classId: topPrediction.classId,
-      inferenceTime: inferenceTime.toFixed(2)
-    };
+    // return {
+    //   topPrediction: topPrediction.prediction.toFixed(7),
+    //   classId: topPrediction.classId,
+    //   inferenceTime: inferenceTime.toFixed(2)
+    // };
+    
+    return results;
   }
