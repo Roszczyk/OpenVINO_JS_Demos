@@ -42,7 +42,7 @@ ipcMain.handle('run-inference', async (event, imagePath, device) => {
     });
 });
 
-ipcMain.handle('run-model', async(imagePath, deviceName) => {
+ipcMain.handle('run-model', async(event, imagePath, deviceName) => {
     const modelPath = path.join(__dirname, 'openvino', 'mobilenet-ssd.xml');
     const result = runModel(modelPath, imagePath, deviceName);
     return result;
