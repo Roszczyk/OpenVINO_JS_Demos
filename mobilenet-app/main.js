@@ -26,25 +26,10 @@ ipcMain.handle('open-file-dialog', async () => {
     return result.filePaths[0];
 });
 
-ipcMain.handle('run-inference', async (event, imagePath, device) => {
-    const modelPath = path.join(__dirname, 'openvino', 'mobilenet-ssd.xml'); 
-    const scriptPath = path.join(__dirname, 'openvino', 'hello_classification.js');
-    return new Promise((resolve, reject) => {
-        const start = Date.now();
-        execFile('node', [scriptPath, modelPath, imagePath, device], (error, stdout, stderr) => {
-            if (error) {
-                reject(`Error: ${stderr}`);
-            } else {
-                const duration = Date.now() - start;
-                resolve({ output: stdout, time: duration });
-            }
-        });
-    });
-});
-
 ipcMain.handle('run-model', async(event, imagePath, deviceName) => {
     const modelPath = path.join(__dirname, 'openvino', 'mobilenet-ssd.xml');
     const result = runModel(modelPath, imagePath, deviceName);
+    console.log("\nRESULT:\n:",result);
     return result;
 });
 
