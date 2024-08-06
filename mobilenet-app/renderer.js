@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', updateDeviceSelect);
 document.getElementById('uploadButton').addEventListener('click', async () => {
     const filePath = await window.electronAPI.openFileDialog();
     if (filePath) {
-        //   document.getElementById('imagePath').innerText = filePath;
         imagePath = filePath
         document.getElementById('imagePreview').src = filePath;
     }
