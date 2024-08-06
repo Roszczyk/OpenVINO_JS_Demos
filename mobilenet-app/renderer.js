@@ -5,6 +5,10 @@ async function updateDeviceSelect() {
     const deviceSelect = document.getElementById('deviceSelect');
 
     deviceSelect.innerHTML = '';
+    const option = document.createElement('option');
+    option.value = "AUTO";
+    option.text = "AUTO";
+    deviceSelect.appendChild(option);
     devices.forEach(device => {
         const option = document.createElement('option');
         option.value = device;
