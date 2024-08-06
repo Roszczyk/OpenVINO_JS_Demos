@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     padding: 20px;
   }
-  
+
   #imageContainer {
     margin: 20px 0;
   }
@@ -15,14 +15,14 @@ body {
   
   #outputContainer {
     background: white;
+    font-size: 30px;
     margin-top: 20px;
   }
-  
-  pre {
-    background: #f4f4f4;
-    padding: 10px;
+
+  #output {
+    font-family: Arial;
   }
-  
+
   #uploadButton, #infButton {
     font-size: 20px;
     width: 240px;
