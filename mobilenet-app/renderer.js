@@ -1,5 +1,20 @@
 let imagePath = null;
 
+async function updateDeviceSelect() {
+    const devices = await window.electronAPI.detectDevices();
+    const deviceSelect = document.getElementById('deviceSelect');
+
+    deviceSelect.innerHTML = '';
+    devices.forEach(device => {
+        const option = document.createElement('option');
+        option.value = device;
+        option.text = device;
+        deviceSelect.appendChild(option);
+    });
+}  
+
+document.addEventListener('DOMContentLoaded', updateDeviceSelect);
+
 document.getElementById('uploadButton').addEventListener('click', async () => {
     const filePath = await window.electronAPI.openFileDialog();
     if (filePath) {

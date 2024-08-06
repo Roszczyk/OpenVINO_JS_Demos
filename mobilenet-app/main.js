@@ -1,7 +1,7 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const path = require('path');
 const fs = require('fs');
-const { runModel } = require('./jobs');
+const { runModel, detectDevices } = require('./jobs');
 
 function createWindow() {
     const win = new BrowserWindow({
@@ -32,5 +32,6 @@ ipcMain.handle('run-model', async(event, imagePath, deviceName) => {
 });
 
 ipcMain.handle('detect-devices', async () => {
-    
+    const devices = detectDevices();
+    return devices;
 });

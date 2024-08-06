@@ -5,7 +5,7 @@ const { cv } = require('opencv-wasm');
 
 const { getImageData } = require('./helpers');
 
-module.exports = { runModel }
+module.exports = { runModel, detectDevices }
 
 const core = new ov.Core();
 
@@ -69,3 +69,8 @@ async function runModel(modelPath, imagePath, deviceName) {
 
     return results;
   }
+
+async function detectDevices() {
+    const devices = core.getAvailableDevices();
+    return devices;
+}
