@@ -1,3 +1,2 @@
-mobilenet-app/node_modules/*
-classification-app/node_modules/*
-webcam-app/node_modules/*
+*/node_modules/*
+*/package-lock.json
