@@ -38,9 +38,6 @@
         "models/mobilenet-ssd.bin",
         "node_modules/**/*"
       ],
-      "asarUnpack": [
-        "models/**/*"
-      ],
       "directories": {
         "buildResources": "build"
       },
