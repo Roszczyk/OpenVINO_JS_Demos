@@ -13,7 +13,7 @@
       "icon": "icon.ico"
     },
     "files": [
-      "src/index.js",
+      "src/main.js",
       "src/index.html",
       "src/renderer.js",
       "src/styles.css",
@@ -26,6 +26,13 @@
     "electron-builder": "^22.10.5"
   },
   "dependencies": {
-    "buffer": "^6.0.3"
-  }
+    "buffer": "^6.0.3",
+    "openvino-node": "2024.3.0",
+    "opencv-wasm": "4.3.0-10",
+    "@napi-rs/canvas": "^0.1.52"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
